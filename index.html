@@ -5,12 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ip Information</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"> 
+
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+    crossorigin=""></script>
 </head>
 <body>
+    <header>
+        <div class="searchIp">
+            <input type="text" name="ipQuery" class="searchInput" placeholder="Type an IP">
+            <button class="searchBtn"> > </button>
+        </div> 
+        <div class="ipInformation">
+            <button class="showDrpodownBtn"></button>
+            <div class="ipInformation-ipNumber">
+                <span class="divTitle">IP</span>
+                192.168.12.3
+            </div>
+            <div class="ipInformation-location">
+                <span class="divTitle">Location</span>
+                <div class="ipInformation-location-country">
+                    <img src="https://www.countryflagsapi.com/svg/AR/" alt="countryFlag" widht="38" height="24" class="ipInformation-location-country-flag">
+                    Argentina
+                </div>
+                <div class="ipInformation-location-region">Santa Fe</div>
+                <div class="ipInformation-location-city">Pilar</div>
+            </div>
+            <div class="ipInformation-ispInfo">
+                <span class="divTitle">ISP</span>
+                <div class="ipInformation-ispInfo-ispName">Name: MEYNET</div>
+                <div class="ipInformation-ispInfo-org">Org: &nbsp&nbsp&nbsp Fibercom S.A</div>
+            </div>
+        </div>
+    </header>
+    <div class="map" id="map"></div>
     <script src="script.js"></script>
 </body>
 </html>
