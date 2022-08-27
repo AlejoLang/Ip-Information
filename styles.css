@@ -68,7 +68,7 @@ header::after
     position: absolute;
     z-index: 1100;
     width: 85vw;
-    height: 10%;
+    height: 9vh;
     background-color: #fefefe;
     border-radius: 20px;
     overflow: hidden;
@@ -76,6 +76,8 @@ header::after
     left: 50%;
     transform: translateX(-50%);
     top: 15vh;
+    text-align: center;
+    box-shadow: 0 0 30px #000;
 }
 
 .showDrpodownBtn
@@ -84,13 +86,12 @@ header::after
     width: 2.25rem;
     height: 2.25rem;
     right: 0.75rem;
-    top: 1.5rem;
+    top: 4.25vh;
     background-color: #aaa;
     border: none;
     border-radius: 10px;
     z-index: 1200;
 }
-
 
 .ipInformation > *
 {
@@ -100,10 +101,12 @@ header::after
 .divTitle
 {
     font-weight: 700;
-    font-size: 1.25rem;
-    width: 100%;
+    font-size: 1rem;
+    color: #777;
+    width: 60%;
+    margin: auto;
     display: block;
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid #333;
     margin-bottom: 0.75rem;
 }
 
@@ -112,6 +115,14 @@ header::after
 .ipInformation-ispInfo
 {
     font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.ipInformation-location
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .ipInformation-location > *
@@ -123,7 +134,10 @@ header::after
 {
     display: flex;
     align-items: center;
+    justify-content: center;
     font-weight: 700;
+    margin: auto;
+    width: 80%;
     margin-top: 0.75rem;
 }
 
@@ -132,10 +146,16 @@ header::after
     margin-right: 1rem;
 }
 
-.ipInformation-location-region,
-.ipInformation-location-city
+.ipInformation-location-regCity
 {
-    margin-left: calc(38px + 1rem);
+    margin-top: 0.5rem;
+    font-weight: 400;
+}
+
+.ipInformation-ispInfo-org
+{
+    margin-top: 0.5rem;
+    font-weight: 400;
 }
 
 #map {
