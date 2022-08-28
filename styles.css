@@ -166,3 +166,78 @@ header::after
     width: 100vw;
     height: 70vh;
 }
+
+@media screen and (min-width:800px) {
+    header
+    {
+        background-size: cover;
+    }
+
+    .searchIp
+    {
+        width: 30%;
+    }
+
+    .ipInformation
+    {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 6rem;
+        padding: 0.5rem;
+        height: 6rem;
+    }
+
+    .showDrpodownBtn
+    {
+        display: none;
+    }
+
+    .divTitle
+    {
+        width: 90%;
+        text-align: left;
+        font-size: 1.1rem;
+    }
+
+    .ipInformation-ipNumber,
+    .ipInformation-location
+    {
+        border-right: 2px solid rgb(100, 100, 100);
+        height: 100%;
+    }
+
+    .ipInformation-ipNumber
+    {
+        font-size: 1.5rem;
+    }
+
+    .ipInformation-location
+    {
+        display: flex;
+    }
+
+    .ipInformation-location-country
+    {
+        font-size: 1.3rem;
+    }
+
+    .ipInformation-location-country-flag
+    {
+        margin-right: 0.5rem;
+    }
+
+    .ipInformation-location-country,
+    .ipInformation-location-regCity
+    {
+        display: inline;
+        width: fit-content;
+        margin-top: 0.1rem;
+    }
+
+    .ipInformation-ispInfo-ispName,
+    .ipInformation-ispInfo-ispOrg
+    {
+        width: 100%;
+        line-height: 1rem;
+    }
+}
