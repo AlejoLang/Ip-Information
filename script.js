@@ -26,13 +26,15 @@ const getIpInformation = async (url) => {
     return response.json();
 }
 
-dropdownBtn.addEventListener('click', (e) => {
-    if(e.target.value == 0){
-        e.target.value = 1;
+dropdownBtn.addEventListener('click', () => {
+    if(dropdownBtn.value == 0){
+        dropdownBtn.value = 1;
+        dropdownBtn.innerHTML = '<i class="fa fas fa-solid fa-caret-up"></i>';
         ipInfoDiv.style.height = '60%';
     } else {
-        e.target.value = 0;
-        ipInfoDiv.style.height = '9vh';
+        dropdownBtn.value = 0;
+        dropdownBtn.innerHTML = '<i class="fa fas fa-solid fa-caret-down"></i>';
+        ipInfoDiv.style.height = '4.5rem';
     }
 });
 
