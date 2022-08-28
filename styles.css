@@ -67,17 +67,17 @@ header::after
 {
     position: absolute;
     z-index: 1100;
-    width: 85vw;
-    height: 4.5rem;
+    width: 75%;
+    height: 4rem;
     background-color: #fefefe;
     border-radius: 20px;
     overflow: hidden;
     padding: 1rem;
     left: 50%;
     transform: translateX(-50%);
-    top: 15vh;
+    top: 17vh;
     text-align: center;
-    box-shadow: 0 0 30px #000;
+    box-shadow: 0 10px 30px #000;
 }
 
 .showDrpodownBtn
@@ -86,7 +86,7 @@ header::after
     width: 2.25rem;
     height: 2.25rem;
     right: 0.75rem;
-    top: 2.25rem;
+    top: 2rem;
     font-size: 1.5rem;
     display: flex;
     align-items: center;
