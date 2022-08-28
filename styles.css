@@ -57,7 +57,7 @@ header::after
     border: none;
     background-color: #222;
     color: #ddd;
-    font-size: 2rem;
+    font-size: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,7 +68,7 @@ header::after
     position: absolute;
     z-index: 1100;
     width: 85vw;
-    height: 9vh;
+    height: 4.5rem;
     background-color: #fefefe;
     border-radius: 20px;
     overflow: hidden;
@@ -86,7 +86,11 @@ header::after
     width: 2.25rem;
     height: 2.25rem;
     right: 0.75rem;
-    top: 4.25vh;
+    top: 2.25rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #aaa;
     border: none;
     border-radius: 10px;
