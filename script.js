@@ -26,28 +26,21 @@ const getIpInformation = async (url) => {
     return response.json();
 }
 
-dropdownBtn.addEventListener('click', () => {
-    if(dropdownBtn.value == 0){
-        dropdownBtn.value = 1;
-        dropdownBtn.innerHTML = '<i class="fa fas fa-solid fa-caret-up"></i>';
-        ipInfoDiv.style.height = '60%';
-    } else {
-        dropdownBtn.value = 0;
-        dropdownBtn.innerHTML = '<i class="fa fas fa-solid fa-caret-down"></i>';
-        ipInfoDiv.style.height = '4.5rem';
+const search = async (ip='') => {
+    let ipData = await getIpInformation(`http://ip-api.com/json/${ip}?fields=59099`);
+    
+    if(ipData.status == 'fail'){
+        alert('Error, invalid IP');
+        return;
     }
-});
 
-window.addEventListener('load', async () => {
-    let ipData = await getIpInformation('http://ip-api.com/json/?fields=59099');
-    console.log(ipData);
     ipInfoDiv.querySelector('.ipInformation-ipNumber')
                 .innerHTML = `<span class="divTitle">IP</span> ${ipData.query}`;
 
     ipInfoDiv.querySelector('.ipInformation-location-country')
                 .innerHTML = `
                     <img src="https://www.countryflagsapi.com/svg/${ipData.countryCode}" alt="countryFlag" widht="38" height="24" class="ipInformation-location-country-flag">
-                    Argentina
+                    ${ipData.country}
                 `;
 
     ipInfoDiv.querySelector('.ipInformation-location-regCity')
@@ -62,4 +55,26 @@ window.addEventListener('load', async () => {
     map.setView([ipData.lat, ipData.lon], 13);
     marker.setLatLng([ipData.lat, ipData.lon]);
     circle.setLatLng([ipData.lat, ipData.lon]);
+}
+
+dropdownBtn.addEventListener('click', () => {
+    if(dropdownBtn.value == 0){
+        dropdownBtn.value = 1;
+        dropdownBtn.innerHTML = '<i class="fa fas fa-solid fa-caret-up"></i>';
+        ipInfoDiv.style.height = '60%';
+    } else {
+        dropdownBtn.value = 0;
+        dropdownBtn.innerHTML = '<i class="fa fas fa-solid fa-caret-down"></i>';
+        ipInfoDiv.style.height = '4rem';
+    }
+});
+
+searchBtn.addEventListener('click', () => {
+    search(searchInput.value);
+    searchInput.value = '';
+    searchBtn.blur();
+})
+
+window.addEventListener('load', () => {
+    search();
 });
