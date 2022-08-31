@@ -27,34 +27,34 @@ const getIpInformation = async (url) => {
 }
 
 const search = async (ip='') => {
-    let ipData = await getIpInformation(`http://ip-api.com/json/${ip}?fields=59099`);
+    let ipData = await getIpInformation(`https://geo.ipify.org/api/v2/country,city?apiKey=at_fvkPSVPlWIxHouVNSJaaV5ae7rZDq&ipAddress=${ip}`);
     
-    if(ipData.status == 'fail'){
+    if(ipData.code == 422){
         alert('Error, invalid IP');
         return;
     }
 
     ipInfoDiv.querySelector('.ipInformation-ipNumber')
-                .innerHTML = `<span class="divTitle">IP</span> ${ipData.query}`;
+                .innerHTML = `<span class="divTitle">IP</span> ${ipData.ip}`;
 
     ipInfoDiv.querySelector('.ipInformation-location-country')
                 .innerHTML = `
-                    <img src="https://www.countryflagsapi.com/svg/${ipData.countryCode}" alt="countryFlag" widht="38" height="24" class="ipInformation-location-country-flag">
-                    ${ipData.country}
+                    <img src="https://www.countryflagsapi.com/svg/${ipData.location.country}" alt="countryFlag" widht="38" height="24" class="ipInformation-location-country-flag">
+                    ${ipData.location.country}
                 `;
 
     ipInfoDiv.querySelector('.ipInformation-location-regCity')
-                .textContent = `${ipData.city}, ${ipData.regionName}`;
+                .textContent = `${ipData.location.city}, ${ipData.location.region}`;
     
     ipInfoDiv.querySelector('.ipInformation-ispInfo-ispName')
                 .textContent = `${ipData.isp}`;
 
     ipInfoDiv.querySelector('.ipInformation-ispInfo-org')
-                .textContent = `${ipData.org}`;
+                .textContent = `${ipData.as.name}`;
 
-    map.setView([ipData.lat, ipData.lon], 13);
-    marker.setLatLng([ipData.lat, ipData.lon]);
-    circle.setLatLng([ipData.lat, ipData.lon]);
+    map.setView([ipData.location.lat, ipData.location.lng], 13);
+    marker.setLatLng([ipData.location.lat, ipData.location.lng]);
+    circle.setLatLng([ipData.location.lat, ipData.location.lng]);
 }
 
 dropdownBtn.addEventListener('click', () => {
