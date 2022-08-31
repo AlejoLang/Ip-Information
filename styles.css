@@ -182,9 +182,9 @@ header::after
     {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 6rem;
+        grid-template-rows: 8rem;
         padding: 0.5rem;
-        height: 6rem;
+        height: 8rem;
     }
 
     .showDrpodownBtn
